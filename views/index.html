@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .show {
+        visibility: visible;
+      }
+
+      .notShow {
+        visibility: hidden;
+      }
+
+      ul > li:nth-child(3n) {
+        color: red;
+      }
+
+      .errorMessage {
+        color: red;
+      }
+
+      .container {
+        display: flex;
+      }
+
+      .width-50 {
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="container">
+      <section class="width-50">
+        <p>
+          <input type="text" placeholder="Type your value" id="textInput" />
+          <input type="button" value="Insert" id="insertButton" />
+        </p>
+        <p id="errorMessage" class="notShow">Please provide valid input</p>
+      </section>
+      <section class="width-50">
+        <ul id="list"></ul>
+      </section>
+    </section>
+    <script>
+      var textInput = document.querySelector("#textInput");
+      var insertButton = document.querySelector("#insertButton");
+      var errorMessage = document.querySelector("#errorMessage");
+      var list = document.querySelector("#list");
+
+      insertButton.addEventListener("click", (e) => {
+        console.log(e);
+        const insertValue = textInput.value;
+        if (!insertValue) {
+          console.log("problem");
+          errorMessage.classList.remove("notShow");
+          errorMessage.classList.add("show");
+        } else {
+          var newLi = document.createElement("li");
+          newLi.textContent = insertValue;
+          list.appendChild(newLi);
+          textInput.value = "";
+          errorMessage.classList.add("notShow");
+        }
+      });
+    </script>
+  </body>
+</html>
