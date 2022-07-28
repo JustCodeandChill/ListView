@@ -35,23 +35,22 @@
     <section class="container">
       <section class="width-50">
         <p>
-          <input type="text" placeholder="Type your value" id="textInput" />
+          <input type="text" placeholder="Type your value" id="input" />
           <input type="button" value="Insert" id="insertButton" />
         </p>
-        <p id="errorMessage" class="notShow">Please provide valid input</p>
+        <p id="errorMessage" class="notShow">Please provide the valid input</p>
       </section>
       <section class="width-50">
         <ul id="list"></ul>
       </section>
     </section>
     <script>
-      var textInput = document.querySelector("#textInput");
+      var textInput = document.querySelector("#input");
       var insertButton = document.querySelector("#insertButton");
       var errorMessage = document.querySelector("#errorMessage");
       var list = document.querySelector("#list");
 
       insertButton.addEventListener("click", (e) => {
-        console.log(e);
         const insertValue = textInput.value;
         if (!insertValue) {
           console.log("problem");
